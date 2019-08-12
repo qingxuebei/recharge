@@ -1,0 +1,97 @@
+<!DOCTYPE html><html>
+<head>
+  <title>更多优惠</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">  
+  <script src="js/flexible.min.js"></script>
+  <link rel="stylesheet" href="css/vant.css">
+  <link type="text/css" href="css/Chongzhi.css" rel="stylesheet" />
+  <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+
+<div class="padd pre ov">
+	<div class="form">
+        <span><img src="images/shouji01.png"></span>
+        <span class="country">+62</span>
+        <input type="tel" class="telnum" placeholder="请输入手机号码" />
+        <span class="logo"><img src="images/logo.jpg"></span>
+  </div>
+	<div class="morehui">
+		<h4>特惠流量包</h4>
+		<ul class="morehuiul">
+			<li class="on" id="newtabon1" onmouseover="showTab(1, 1, 2, 'newtab', 'newtabon');"><a href="javascript:">常用</a></li>
+	    <li class="" id="newtabon2" onmouseover="showTab(2, 1, 2, 'newtab', 'newtabon');"><a href="javascript:">更多</a></li>	
+		</ul>
+		<div id="newtab1" class="moreliu" style="">
+			<ul>
+				<li>
+					<span class="liunum">10G</span>
+					<div class="youhui">
+						<div class="tabl">
+						<span>60天有效<i>限时特惠</i></span>
+						</div>
+					</div>
+					<span class="jiage">￥ 3.50</span>
+				</li>
+				<li>
+					<span class="liunum">20G</span>
+					<div class="youhui">
+						<div class="tabl">
+						<span>当月有效</i></span>
+						</div>
+					</div>
+					<span class="jiage">￥ 6.50</span>
+				</li>
+			</ul>
+		</div><div id="newtab2" class="moreliu" style=" display: none;">
+			<ul>
+				<li>
+					<span class="liunum">10G</span>
+					<div class="youhui">
+						<div class="tabl">
+						<span>60天有效<i>限时特惠</i></span>
+						</div>
+					</div>
+					<span class="jiage">￥ 9.0</span>
+				</li>
+				<li>
+					<span class="liunum">20G</span>
+					<div class="youhui">
+						<div class="tabl">
+						<span>60天有效<i>限时特惠</i></span>
+						</div>
+					</div>
+					<span class="jiage">￥ 7.0</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+</div>
+
+<div class="bottom-href">
+  		<a href="/idbill/history">充值记录</a> 丨 <span>联系客服</span>
+</div>
+
+<script type="text/javascript">
+function showTab(tid, s, e, id, li_id){
+	for (var i=s; i<=e; i++){
+		$("#" + id + i).css("display","none");
+		//remove on
+		if(li_id != ""){
+			$("#" + li_id + i).removeClass("on");
+		}
+	}
+	$("#" + id + tid).css("display","");
+	$("#" + id + tid).fadeIn(500);
+	//on
+	if(li_id != ""){
+		$("#" + li_id + tid).addClass("on");	
+	}
+}
+</script>
+
+	</body>
+</html>

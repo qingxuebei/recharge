@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>充值</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!--<meta http-equiv="Access-Control-Allow-Origin" content="*" />-->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+    <script src="js/flexible.min.js"></script>
+    <script src="js/constant.js?a=2"></script>
+    <script src="js/detail/index.js"></script>
+    <link rel="stylesheet" href="css/vant.css">
+    <link type="text/css" href="css/Chongzhi.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="gonggao">
+        <span>提示</span>
+        <span>24小时在线充值1-5分钟内到账！</span>
+    </div>
+    <div class="padd pre">
+        <div class="form">
+            <span><img src="images/phone.png"></span>
+            <span class="country">+62</span>
+            <input id="txt_phone" type="tel" onblur="upperCase()" class="telnum" placeholder="请输入手机号码" />
+            <span class="logo"><img id="img_logoUrl" src="images/logo.jpg"></span>
+        </div>
+        <div class="qiehuan">
+            <ul class="tabul">
+                <li class="on" id="newtabon1" onmouseover="showTab(1, 1, 2, 'newtab', 'newtabon');"><a href="javascript:">充话费</a></li>
+                <li class="" id="newtabon2" onmouseover="showTab(2, 1, 2, 'newtab', 'newtabon');"><a href="javascript:">充流量</a></li>
+            </ul>
+            <div class="yewu bor-lv">
+                <div id="newtab1" class="huafei" style="">
+                    <ul>
+                        <li>
+                            <span>5K IDR</span>
+                            <span>售价  3.5元</span>
+                        </li>
+                        <li>
+                            <span>5K IDR</span>
+                            <span>售价  3.5元</span>
+                        </li>
+                        <li>
+                            <span>5K IDR</span>
+                            <span>售价  3.5元</span>
+                        </li>
+                        <li>
+                            <span>5K IDR</span>
+                            <span>售价  3.5元</span>
+                        </li>
+                        <li>
+                            <span>5K IDR</span>
+                            <span>售价  3.5元</span>
+                        </li>
+                        <li>
+                            <span>5K IDR</span>
+                            <span>售价  3.5元</span>
+                        </li>
+                        <li>
+                            <span>5K IDR</span>
+                            <span>售价  3.5元</span>
+                        </li>
+                        <li>
+                            <span>5K IDR</span>
+                            <span>售价  3.5元</span>
+                        </li>
+                        <li>
+                            <span>更多</span>
+                            <span>充值优惠</span>
+                        </li>
+                    </ul>
+                </div>
+                <div id="newtab2" class="huafei liuliang" style="display: none;">
+                    <ul>
+                        <li class="" id="newtabon3" onmouseover="showTab(3, 3, 11, 'newtab', 'newtabon');">
+                            <span>1G</span>
+                            <span>仅售  26.5元</span>
+                        </li>
+                        <li class="" id="newtabon4" onmouseover="showTab(4, 3, 11, 'newtab', 'newtabon');">
+                            <span>12G</span>
+                            <span>仅售  26.5元</span>
+                        </li>
+                        <li class="" id="newtabon5" onmouseover="showTab(5, 3, 11, 'newtab', 'newtabon');">
+                            <span>35G</span>
+                            <span>仅售  26.5元</span>
+                        </li>
+                        <li class="" id="newtabon6" onmouseover="showTab(6, 3, 11, 'newtab', 'newtabon');">
+                            <span>35G</span>
+                            <span>仅售  26.5元</span>
+                        </li>
+                        <li class="" id="newtabon7" onmouseover="showTab(7, 3, 11, 'newtab', 'newtabon');">
+                            <span>35G</span>
+                            <span>仅售  26.5元</span>
+                        </li>
+                        <li class="" id="newtabon8" onmouseover="showTab(8, 3, 11, 'newtab', 'newtabon');">
+                            <span>35G</span>
+                            <span>仅售  26.5元</span>
+                        </li>
+                        <li class="" id="newtabon9" onmouseover="showTab(9, 3, 11, 'newtab', 'newtabon');">
+                            <span>35G</span>
+                            <span>仅售  26.5元</span>
+                        </li>
+                        <li class="" id="newtabon10" onmouseover="showTab(10, 3, 11, 'newtab', 'newtabon');">
+                            <span>35G</span>
+                            <span>仅售  26.5元</span>
+                        </li>
+                        <li>
+                            <span>更多</span>
+                            <span>流量优惠</span>
+                        </li>
+                    </ul>
+                    <div id="newtab3" class="liuliang-detail ov" style="display: none;">
+                        <div class="fl lxdetail">
+                            <h2>26.5元<label>30天</label></h2>
+                            <span>根据您当前网络质量随机到账800M-1.5G通用流量包+1G夜间闲时包+VideoMax 3GB ，有效期30天</span>
+                        </div>
+                        <div class="fr order">
+                            <a href="#">购买</a>
+                        </div>
+                    </div>
+                    <div id="newtab4" class="liuliang-detail ov" style="display: none;">
+                        <div class="fl lxdetail">
+                            <h2>25元<label>30天</label></h2>
+                            <span>根据您当前网络质量随机到账800M-1.5G通用流量包+1G夜间闲时包+VideoMax 3GB ，有效期30天</span>
+                        </div>
+                        <div class="fr order">
+                            <a href="#">购买</a>
+                        </div>
+                    </div>
+                    <div id="newtab5" class="liuliang-detail ov" style="display: none;">
+                        <div class="fl lxdetail">
+                            <h2>40.5元<label>30天</label></h2>
+                            <span>根据您当前网络质量随机到账800M-1.5G通用流量包+1G夜间闲时包+VideoMax 3GB ，有效期30天</span>
+                        </div>
+                        <div class="fr order">
+                            <a href="#">购买</a>
+                        </div>
+                    </div>
+                    <div id="newtab6" class="liuliang-detail ov" style="display: none;">
+                        <div class="fl lxdetail">
+                            <h2>26.5元<label>30天</label></h2>
+                            <span>根据您当前网络质量随机到账800M-1.5G通用流量包+1G夜间闲时包+VideoMax 3GB ，有效期30天</span>
+                        </div>
+                        <div class="fr order">
+                            <a href="#">购买</a>
+                        </div>
+                    </div>
+                    <div id="newtab7" class="liuliang-detail ov" style="display: none;">
+                        <div class="fl lxdetail">
+                            <h2>20元<label>30天</label></h2>
+                            <span>根据您当前网络质量随机到账800M-1.5G通用流量包+1G夜间闲时包+VideoMax 3GB ，有效期30天</span>
+                        </div>
+                        <div class="fr order">
+                            <a href="#">购买</a>
+                        </div>
+                    </div>
+                    <div id="newtab8" class="liuliang-detail ov" style="display: none;">
+                        <div class="fl lxdetail">
+                            <h2>26.5元<label>30天</label></h2>
+                            <span>根据您当前网络质量随机到账800M-1.5G通用流量包+1G夜间闲时包+VideoMax 3GB ，有效期30天</span>
+                        </div>
+                        <div class="fr order">
+                            <a href="#">购买</a>
+                        </div>
+                    </div>
+                    <div id="newtab9" class="liuliang-detail ov" style="display: none;">
+                        <div class="fl lxdetail">
+                            <h2>26.5元<label>30天</label></h2>
+                            <span>根据您当前网络质量随机到账800M-1.5G通用流量包+1G夜间闲时包+VideoMax 3GB ，有效期30天</span>
+                        </div>
+                        <div class="fr order">
+                            <a href="#">购买</a>
+                        </div>
+                    </div>
+                    <div id="newtab10" class="liuliang-detail ov" style="display: none;">
+                        <div class="fl lxdetail">
+                            <h2>20.5元<label>30天</label></h2>
+                            <span>根据您当前网络质量随机到账800M-1.5G通用流量包+1G夜间闲时包+VideoMax 3GB ，有效期30天</span>
+                        </div>
+                        <div class="fr order">
+                            <a href="#">购买</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flexslider2">
+            <ul class="slides">
+                <li><a href="cptext.html"><img src="images/fa1.png" /></a></li>
+                <li><a href="cptext.html"><img src="images/fa2.png" /></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="bottom-href">
+        <a href="jilu.html">充值记录</a> 丨 <span>联系客服</span>
+    </div>
+    <link rel="stylesheet" type="text/css" href="css/flexslider.css">
+    <script type="text/javascript" src="js/jquery.flexslider.js"></script>
+</body>
+</html>

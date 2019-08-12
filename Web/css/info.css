@@ -1,0 +1,322 @@
+﻿a,a:visited,a:hover {
+	color: #000;
+	text-decoration: none
+}
+
+html,body,ul,ol,p,input,select,dt,dd,h3 {
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif,roboto
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-size: 12px;
+	font-weight: normal;
+	padding: 0;
+	margin: 0
+}
+
+li {
+	list-style: none
+}
+
+i {
+	font-style: normal
+}
+
+b {
+	font-weight: normal
+}
+
+div,span,a,button,input {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	outline: none
+}
+
+body {
+	min-width: 360px;
+	background: #f9f9f9;
+	color: #000;
+	font-size: 12px
+}
+
+.p-title {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 1;
+	top: 60px;
+	text-align: center;
+	font-size: 16px;
+	color: #fff
+}
+
+.head {
+	background: url(https://ts.market.mi-img.com/thumbnail/png/q80/Finance/06ce6540db9b440770b3dc8a27edfb4a7d1922108) no-repeat;
+	background-size: 100%;
+	height: 22vw;
+	text-align: center;
+	position: relative;
+	padding-top: 16vw;
+	display: block
+}
+
+.back {
+	z-index: 2;
+	width: 6px;
+	height: 11px;
+	background: url(https://ts.market.mi-img.com/thumbnail/png/q80/Finance/06e905ee6f31fb9ab847da7825d843f261f4267d2) no-repeat center;
+	background-size: 6px;
+	position: absolute;
+	left: 16px;
+	top: 14.5vw;
+	padding: 10px
+}
+
+.banner {
+	position: relative;
+	display: block;
+	background: #fff;
+	max-width: 360px;
+	width: 92%;
+	margin: -18px auto 18px;
+	border-radius: 4px;
+	box-shadow: 0 8px 20px rgba(0,0,0,0.1)
+}
+
+.banner .listtext {
+	position: absolute;
+	left: 24px;
+	bottom: 22px
+}
+
+.listtext {
+	line-height: 1.8
+}
+
+.listtext h3 {
+	padding-left: 17px;
+	font-size: 14px;
+	color: #222;
+	background: url(https://ts.market.mi-img.com/thumbnail/png/q80/Finance/0390d53f7da12d107daac0e88fe356ccf1d40aafa) no-repeat left center;
+	background-size: 8px
+}
+
+.listtext h4 {
+	padding-left: 17px;
+	color: #5b6469
+}
+
+.info {
+	max-width: 360px;
+	box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+	margin: auto;
+	border-radius: 4px;
+	width: 92%;
+	background: #fff;
+	box-sizing: border-box;
+	padding: 18px 17px 12px 15px
+}
+
+.info .title {
+	display: flex;
+	align-items: center
+}
+
+.info .title h2 {
+	font-size: 16px;
+	color: #222;
+	flex: 1
+}
+
+.info .title .btn {
+	width: 15px;
+	height: 9px;
+	background: url(https://ts.market.mi-img.com/thumbnail/png/q80/Finance/0e2dec44665474ab616a60f8b91de99ec2f6e1708) no-repeat center top;
+	background-size: 100%
+}
+
+.info .title .btn.down {
+	background-image: url(https://ts.market.mi-img.com/thumbnail/png/q80/Finance/062dec44665474ab616a60f8b92de993c2f661708)
+}
+
+.info ul {
+	padding-left: 4px
+}
+
+.info ul .listtext {
+	margin-top: 20px
+}
+
+.check {
+	margin-bottom: 10px
+}
+
+.check input {
+	background: url(https://ts.market.mi-img.com/thumbnail/png/q80/Finance/02d8cf40991ec4b551e98bee9b9d0ec7791e29c6d) no-repeat center;
+	-webkit-appearance: none;
+	width: 36px;
+	height: 36px;
+	background-size: 16px;
+	vertical-align: middle;
+	border: none
+}
+
+.check input:checked {
+	background-image: url(https://ts.market.mi-img.com/thumbnail/png/q80/Finance/00d8cf40991cc4b511e982ee9bdd0ecf791e79c6d)
+}
+
+.check span {
+	vertical-align: middle;
+	font-size: 12px
+}
+
+.check a {
+	color: #5796e0
+}
+
+.button {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	box-sizing: border-box;
+	background: #fff;
+	padding: 16px 24px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16)
+}
+
+.button .content {
+	background: #51cc9e;
+	border-radius: 5px;
+	color: #fff;
+	text-align: center;
+	height: 48px;
+	line-height: 48px;
+	font-size: 16px
+}
+
+.button .disable {
+	background: #baebd9
+}
+
+.foot {
+	box-sizing: border-box;
+	max-width: 360px;
+	width: 92%;
+	margin: auto;
+	padding: 16px;
+	color: #797e96;
+	font-size: 10px
+}
+
+.list-head {
+	height: 30px;
+	background: linear-gradient(90deg, #00d496 0%, #01c488 100%);
+	align-items: flex-end;
+	padding: 0 16px 13px 16px;
+	font-size: 16px;
+	color: #ffffff;
+	display: flex;
+	justify-content: center
+}
+
+.list-item {
+	margin: 8px;
+	margin-bottom: 0;
+	background-color: #ffffff;
+	border: 1px solid #e0e0e0;
+	border-radius: 6px;
+	flex-direction: column
+}
+
+.list-item span {
+	font-size: 12px;
+	color: #666666
+}
+
+.list-item .p1 {
+	flex-direction: row;
+	padding: 10px 20px;
+	align-items: center;
+	display: flex
+}
+
+.list-item .p1 .icon {
+	width: 28px;
+	height: 28px;
+	border-radius: 14px;
+	position: relative;
+	top: 2px
+}
+
+.list-item .p1 span {
+	flex: 1;
+	margin-left: 8px;
+	color: #333333
+}
+
+.list-item .p1 a {
+	padding: 0 13px;
+	border: 1px solid #51CC9E;
+	border-radius: 26px;
+	align-items: center;
+	height: 26px;
+	display: flex
+}
+
+.list-item .p1 a span {
+	font-size: 12px;
+	color: #51CC9E
+}
+
+.list-item .p1 a .arrow {
+	width: 6px;
+	height: 10px;
+	margin-left: 4px;
+	margin-top: 0px
+}
+
+.list-item .p2 {
+	flex-direction: column;
+	padding: 0 0 8px 0;
+	align-items: center;
+	border-bottom: 1px solid #eaeaea;
+	display: flex
+}
+
+.list-item .p2 .p2top {
+	flex-direction: column;
+	flex: 1;
+	align-items: center;
+	padding-bottom: 5px;
+	display: flex
+}
+
+.list-item .p2 .p2bottom {
+	color: #9B9B9B;
+	max-width: 85%;
+	text-align: justify
+}
+
+.list-item .p3 {
+	flex-direction: row;
+	height: 34px;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 15px;
+	display: flex
+}
+
+.list-item .p3 div {
+	display: flex;
+	align-items: center
+}
+
+.list-item .p3 img {
+	width: 14px;
+	height: 14px;
+	margin-right: 5px;
+	margin-top: 2px
+}

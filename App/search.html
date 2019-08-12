@@ -1,0 +1,84 @@
+<!DOCTYPE html><html>
+<head>
+  <title>查找记录</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">  
+  <script src="js/flexible.min.js"></script>
+  <link rel="stylesheet" href="css/vant.css">
+  <link type="text/css" href="css/Chongzhi.css" rel="stylesheet" />
+  <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+<div class="padd pre ov">	
+	<div class="qiechoose fl"><span class="fl selectname hide">按月选择</span><img src="images/huan.png" class="fl"></div>
+	<div class="fr wanc">完成</div>
+	<div class="clear"></div>
+	<div class="selectdate">
+		<input readonly class="form-control fl" type="text" id="date-group1-1" placeholder="选择月份">
+		<div class="delete"><img src="images/shan.png"></div>
+	</div>
+	<div class="selectriqi">
+		<input readonly class="form-control fl datehao" type="text" id="date-group1-2" placeholder="开始日期">
+		<label>至</label>
+		<input readonly class="form-control fl datehao" type="text" id="date-group1-3" placeholder="结束日期">
+		<div class="clear"></div>
+		<div class="delete"><img src="images/shan.png"></div>
+	</div>
+  
+  
+</div>
+
+<div class="bottom-href">
+  		<a href="/idbill/history">充值记录</a> 丨 <span>联系客服</span>
+</div>
+
+
+<script>
+		window.onload = function() {
+			// 格式
+			new Jdate({
+				el: '#date-group1-1',
+				format: 'YYYY-MM',
+				beginYear: 2000,
+				endYear:2019
+			})
+			new Jdate({
+				el: '#date-group1-2',
+				format: 'YYYY-MM-DD',
+				beginYear: 2000,
+				endYear: 2019
+			})
+			new Jdate({
+				el: '#date-group1-3',
+				format: 'YYYY-MM-DD',
+				beginYear: 2000,
+				endYear: 2019
+			})
+			
+		}
+		$(function(){
+        $(".selectriqi").hide();
+        //按钮点击事件
+        $(".qiechoose").click(function(){
+            var txts = $(this).children("span");
+            if (txts.text() == "按月选择"){
+                txts.text("按日选择");
+                $(this).addClass('hide');
+                //$('.selectdate').addClass('show');
+                $(".selectriqi").show();
+                $(".selectdate").hide();
+                
+            }else{
+                txts.text("按月选择"); 
+                $(this).removeClass('hide');
+                //$(".selectdate").removeClass('show');
+                $(".selectdate").show();
+                $(".selectriqi").hide();
+            }
+        })
+    });
+	</script>
+<script type="text/javascript" src="js/jdate.min.js"></script></body>
+	</body>
+</html>

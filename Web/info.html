@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title></title>
+    <link href="css/info.css" rel="stylesheet" />
+    <script type="text/javascript" src="scripts/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            jQuery.ajax({
+                type: "get",
+                url: "http://localhost:3379/api/MarketApi/5",
+                cache: false,
+                dataType: "json",
+                data:{},
+                success: function (result) {
+                    var rs = JSON.parse(result);
+                    var ulHtml = " <ul v-if='list' style=\"padding-bottom: 10px;\">";
+                    $("#app").html("");
+                    for (i = 0; i < rs.length; i++) {
+                        ulHtml += " <li class=\"list-item\" onclick='applyNow(\""+rs[i].SmsUrl+"\")'>";
+                        ulHtml += "  <div class=\"p1\">";
+                        ulHtml += "   <img class=\"icon\" src=\""+rs[i].IconUrl+"\">";
+                        ulHtml += "   <span style=\"font-size:16px;\">" + rs[i].Name + "</span>";
+                        ulHtml += "   <a>";
+                        ulHtml += "       <span>Apply Now</span>";
+                        ulHtml += "       <img class=\"arrow\" src=\"/images/info/in_003.png\">";
+                        ulHtml += "   </a>";
+                        ulHtml += "   </div>";
+                        ulHtml += "   <div class=\"p2\">";
+                        ulHtml += "     <div class=\"p2top\">";
+                        ulHtml += "         <p>Maximum Amount (IDR)</p>";
+                        ulHtml += "          <p style=\"font-size: 26px; color: #51CC9E;\">" + rs[i].MaxMoney + ".000</p>";
+                        ulHtml += "     </div>";
+                        ulHtml += "     <div class=\"p2bottom\">Tenure: " + rs[i].Tenure + "</div>";
+                        ulHtml += "     <div class=\"p2bottom\">Monthly Interest Rate: " + rs[i].Rate + "</div>";
+                        ulHtml += "  </div>";
+                        ulHtml += "  <div class=\"p3\">";
+                        ulHtml += "     <div>";
+                        ulHtml += "         <img src=\"/images/info/in_001.png\" />";
+                        ulHtml += "        <span>Approval Time: " + rs[i].ApprovlTime + "</span>";
+                        ulHtml += "    </div>";
+                        ulHtml += "    <div>";
+                        ulHtml += "        <img src=\"/images/info/in_002.png\">";
+                        ulHtml += "         <span>Disbursement: " + rs[i].Disbursement + "</span>";
+                        ulHtml += "     </div>";
+                        ulHtml += "  </div>";
+                        ulHtml += " </li>";
+                    }
+                    ulHtml += " </ul>";
+                    $("#app").html(ulHtml);
+                },
+                error: function (e) {
+                    console.log("ExpandMemertyDBRealtime.GetRealtimeData:" + e);
+                }
+            });
+        });
+        function applyNow(url) {
+            //window.open(url);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body style="background: #f3f3f3;">
+    <div id="app">
+        <!-- 列表 -->
+        <ul v-if='list' style="padding-bottom: 10px;">
+           
+            <!--<li v-for='l in list' class="list-item" @click='applyNow(l.id, l.smsUrl)'>
+                <div class="p1">
+                    <img class="icon" src="l.icon">
+                    <span style="font-size:16px;">{{l.name}}</span>
+                    <a>
+                        <span>Apply Now</span>
+                        <img class="arrow" src="/images/info/in_003.png">
+                    </a>
+                </div>
+                <div class="p2">
+                    <div class="p2top">
+                        <p>Maximum Amount (IDR)</p>
+                        <p style="font-size: 26px; color: #51CC9E;">{{l.maxmoney}}.000</p>
+                    </div>
+                    <div class="p2bottom">Tenure: {{l.tenure}}</div>
+                    <div class="p2bottom">Monthly Interest Rate: {{l.rate}}</div>
+                </div>
+                <div class="p3">
+                    <div>
+                        <img src="/images/info/in_001.png" />
+                        <span>Approval Time: {{l.time}}</span>
+                    </div>
+                    <div>
+                        <img src="/images/info/in_002.png">
+                        <span>Disbursement: {{l.disbursement}}</span>
+                    </div>
+                </div>
+            </li>-->
+        </ul>
+    </div>
+
+</body>
+
+</html>
