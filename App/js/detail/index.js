@@ -78,7 +78,9 @@ function getPulsaProduct() {
     for (var i = 0; i < pulsaProductShowList.length; i++) {
         //找出充值话费的套餐
         if (pulsaProductShowList[i].pulsa_channel == PulsaChannel) {
-            ulHtmlNewTab1 += " <li><a href=\"order.html\"><span>" + pulsaProductShowList[i].cn_quatity + "</span><span>仅售" + pulsaProductShowList[i].cn_price + "元</span></a></li>";
+            ulHtmlNewTab1 += " <li><a href=\"javascript:void(0)\" onclick=\"createOrder(" + pulsaProductShowList[i] + ")\"><span>"
+                + pulsaProductShowList[i].cn_quatity + "</span><span>仅售"
+                + pulsaProductShowList[i].cn_price + "元</span></a></li>";
         }
         //找出充值流量的套餐
         if (pulsaProductShowList[i].pulsa_channel == DataChannel) {
@@ -90,6 +92,24 @@ function getPulsaProduct() {
     $("#newtab1").html(ulHtmlNewTab1);
     $("#newtab2").html(ulHtmlNewTab2);
 
+}
+
+function createOrder(pulsaProductShowListFirst) {
+    //生成订单
+    jQuery.ajax({
+        type: "post",
+        url: baseUrl + "api/PulsaApi?=" + Math.random(),
+        cache: false,
+        dataType: "json",
+        data: {},
+        success: function (result) {
+            pulsaPerfixProductShow = JSON.parse(result);
+
+        },
+        error: function (e) {
+            console.log("ExpandMemertyDBRealtime.GetRealtimeData:" + e);
+        }
+    });
 }
 
 
