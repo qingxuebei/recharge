@@ -246,6 +246,34 @@ namespace MyData
             }
             return output;
         }
+
+        /// 过滤SQL字符。
+        /// </summary>
+        /// <param name="str">要过滤SQL字符的字符串。</param>
+        /// <returns>已过滤掉SQL字符的字符串。</returns>
+        public static string ReplaceSQLChar(string str)
+        {
+            if (str == String.Empty)
+                return String.Empty;
+            str = str.Replace("'", "‘");
+            str = str.Replace(";", "；");
+            str = str.Replace(",", ",");
+            str = str.Replace("?", "?");
+            str = str.Replace("<", "＜");
+            str = str.Replace(">", "＞");
+            str = str.Replace("(", "(");
+            str = str.Replace(")", ")");
+            str = str.Replace("@", "＠");
+            str = str.Replace("=", "＝");
+            str = str.Replace("+", "＋");
+            str = str.Replace("*", "＊");
+            str = str.Replace("&", "＆");
+            str = str.Replace("#", "＃");
+            str = str.Replace("%", "％");
+            str = str.Replace("$", "￥");
+
+            return str;
+        }
         #endregion
 
         #region 检查过滤设定的危险字符

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace MyData
 {
-    class ClientResult
+    public static class ClientResult
     {
         public class Result
         {
             public ClientCode Code { get; set; }
             public string Message { get; set; }
         }
-        
+
     }
 }

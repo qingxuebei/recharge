@@ -83,5 +83,27 @@ namespace DAL
             sql += where;
             return MyData.DataBase.Base_list<Model.PulsaProductShow>(sql);
         }
+
+        public Model.PulsaProduct getFirstById(string pulsaCode)
+        {
+            String sql = @"SELECT [pulsa_code]
+                              ,[pulsa_op]
+                              ,[pulsa_nominal]
+                              ,[pulsa_price]
+                              ,[pulsa_type]
+                              ,[masaaktif]
+                              ,[status]
+                              ,[cn_quatity]
+                              ,[cn_op]
+                              ,[cn_status]
+                              ,[cn_price]
+                              ,[create_time]
+                              ,[update_time]
+                              ,[pulsa_channel]
+                              ,[cn_oldprice]
+                          FROM [recharge].[dbo].[PulsaProduct] with(nolock) where pulsa_code='" + pulsaCode + "'";
+
+            return MyData.DataBase.Base_getFirst<Model.PulsaProduct>(sql);
+        }
     }
 }

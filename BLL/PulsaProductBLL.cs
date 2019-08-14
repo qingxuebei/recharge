@@ -28,5 +28,11 @@ namespace BLL
             DAL.PulsaProductDal pulsaProductDal = new DAL.PulsaProductDal();
             return pulsaProductDal.getShowListByQuery(strWhere);
         }
+
+        public Model.PulsaProduct getFirstById(String pulsaCode)
+        {
+            DAL.PulsaProductDal pulsaProductDal = new DAL.PulsaProductDal();
+            return pulsaProductDal.getFirstById(pulsaCode);
+        }
     }
 }
