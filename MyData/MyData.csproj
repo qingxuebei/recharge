@@ -65,6 +65,7 @@
     <Compile Include="PulsaApi.cs" />
     <Compile Include="PulsaModels.cs" />
     <Compile Include="ShowData.cs" />
+    <Compile Include="Suggestion.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>

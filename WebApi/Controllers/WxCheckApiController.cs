@@ -17,11 +17,11 @@ namespace WebApi.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/WxCheckApi/5
+        // GET: api/WxCheckApi
         [HttpGet]
         public string Get(string signature, string timestamp, string nonce, string echostr)
         {
-            string token = "plusa";
+            string token = "qingxuebei";
             string[] temp1 = { token, timestamp, nonce };
             //字典序排列
             Array.Sort(temp1);
