@@ -21,6 +21,13 @@ namespace WebApi.Controllers
         [HttpGet]
         public string Get(string signature, string timestamp, string nonce, string echostr)
         {
+            Model.Logs logs = new Model.Logs();
+            BLL.LogsBLL logBLL = new BLL.LogsBLL();
+            
+            logs.LogText = "signature=" + signature + ",timestamp=" + timestamp + ",nonce" + nonce + ",echostr" + echostr;
+
+            logBLL.Insert(logs);
+
             string token = "qingxuebei";
             string[] temp1 = { token, timestamp, nonce };
             //字典序排列
@@ -29,6 +36,9 @@ namespace WebApi.Controllers
 
             string temp3 = FormsAuthentication.HashPasswordForStoringInConfigFile(temp2, "SHA1");
 
+            logs.LogText = "temp3=" + temp3;
+            logBLL = new BLL.LogsBLL();
+            logBLL.Insert(logs);
             if (temp3.ToLower().Equals(signature))
             {
                 return echostr;

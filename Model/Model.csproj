@@ -46,6 +46,7 @@
     <Compile Include="Market.cs" />
     <Compile Include="PulsaPrefix.cs" />
     <Compile Include="PulsaProduct.cs" />
+    <Compile Include="Logs.cs" />
     <Compile Include="SysUser.cs" />
   </ItemGroup>
   <ItemGroup>
