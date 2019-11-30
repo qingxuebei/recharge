@@ -12,12 +12,12 @@ namespace WebApi.Controllers
     public class WxCheckApiController : ApiController
     {
         // GET: api/WxCheckApi
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
 
-        // GET: api/WxCheckApi/5
+        // GET: api/WxCheckApi
         [HttpGet]
         public string Get(string signature, string timestamp, string nonce, string echostr)
         {
