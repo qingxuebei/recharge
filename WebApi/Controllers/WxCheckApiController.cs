@@ -22,6 +22,11 @@ namespace WebApi.Controllers
         [HttpGet]
         public object GetWx(string signature, string timestamp, string nonce, string echostr)
         {
+            Model.Logs logs = new Model.Logs();
+            BLL.LogsBLL logBLL = new BLL.LogsBLL();
+            logs.LogText = "signature=" + signature + ",timestamp=" + timestamp + ",nonce" + nonce + ",echostr" + echostr;
+            logBLL.Insert(logs);
+
             string token = "weixin";
             var arr = new[] { token, timestamp, nonce }.OrderBy(z => z).ToArray();
             var arrString = string.Join("", arr);
@@ -32,6 +37,9 @@ namespace WebApi.Controllers
             {
                 enText.AppendFormat("{0:x2}", b);
             }
+            logs.LogText = "temp3=" + enText;
+            logBLL = new BLL.LogsBLL();
+            logBLL.Insert(logs);
 
             if (signature != enText.ToString())
             {
