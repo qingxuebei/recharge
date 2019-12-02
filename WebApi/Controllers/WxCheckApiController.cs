@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Web.Http;
 using System.Web.Security;
 
@@ -18,33 +19,26 @@ namespace WebApi.Controllers
         //}
 
         // GET: api/WxCheckApi
-        //[HttpGet]
+        [HttpGet]
         public object GetWx(string signature, string timestamp, string nonce, string echostr)
         {
-            //Model.Logs logs = new Model.Logs();
-            //BLL.LogsBLL logBLL = new BLL.LogsBLL();
-            
-            //logs.LogText = "signature=" + signature + ",timestamp=" + timestamp + ",nonce" + nonce + ",echostr" + echostr;
-
-            //logBLL.Insert(logs);
-
-            string token = "qingxuebei";
-            string[] temp1 = { token, timestamp, nonce };
-            //字典序排列
-            Array.Sort(temp1);
-            string temp2 = string.Join("", temp1);
-
-            string temp3 = FormsAuthentication.HashPasswordForStoringInConfigFile(temp2, "SHA1");
-
-            //logs.LogText = "temp3=" + temp3;
-            //logBLL = new BLL.LogsBLL();
-            //logBLL.Insert(logs);
-            if (temp3.ToLower().Equals(signature))
+            string token = "weixin";
+            var arr = new[] { token, timestamp, nonce }.OrderBy(z => z).ToArray();
+            var arrString = string.Join("", arr);
+            var sha1 = System.Security.Cryptography.SHA1.Create();
+            var sha1Arr = sha1.ComputeHash(Encoding.UTF8.GetBytes(arrString));
+            StringBuilder enText = new StringBuilder();
+            foreach (var b in sha1Arr)
             {
-                return echostr;
+                enText.AppendFormat("{0:x2}", b);
             }
 
-            return "";
+            if (signature != enText.ToString())
+            {
+                return "参数错误";
+            }
+            return echostr;
+            
         }
 
         // POST: api/WxCheckApi
