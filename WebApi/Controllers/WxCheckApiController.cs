@@ -20,7 +20,7 @@ namespace WebApi.Controllers
 
         // GET: api/WxCheckApi
         [HttpGet]
-        public object GetWx(string signature, string timestamp, string nonce, string echostr)
+        public string GetWx(string signature, string timestamp, string nonce, string echostr)
         {
             return echostr;
 
