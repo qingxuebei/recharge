@@ -22,8 +22,6 @@ namespace WebApi.Controllers
         [HttpGet]
         public string GetWx(string signature, string timestamp, string nonce, string echostr)
         {
-            return echostr;
-
             Model.Logs logs = new Model.Logs();
             BLL.LogsBLL logBLL = new BLL.LogsBLL();
             logs.LogText = "signature=" + signature + ",timestamp=" + timestamp + ",nonce" + nonce + ",echostr" + echostr;
