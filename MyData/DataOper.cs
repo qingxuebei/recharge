@@ -25,31 +25,6 @@ namespace MyData
             //
         }
 
-        public static string getHYJB(string jb) //会员级别
-        {
-            string jbname = "";
-            switch (jb)
-            {
-                case "0":
-                    jbname = "未激活";
-                    break;
-                case "1":
-                    jbname = "会员卡";
-                    break;
-                case "2":
-                    jbname = "贵宾卡";
-                    break;
-                case "3":
-                    jbname = "金尊卡";
-                    break;
-                case "4":
-                    jbname = "至尊卡";
-                    break;
-                default:
-                    break;
-            }
-            return jbname;
-        }
         public static string dao_name()
         {
             return "数据导出.xls";
@@ -134,20 +109,20 @@ namespace MyData
         /// </summary>
         /// <param name="pass">原始密码</param>
         /// <returns></returns>
-        public static string encryptmd5(string pass)
-        {
-            return System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(pass, "md5");
-        }
+        //public static string encryptmd5(string pass)
+        //{
+        //    return System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(pass, "md5");
+        //}
 
         /// <summary>
         /// sha1加密
         /// </summary>
         /// <param name="pass">原始密码</param>
         /// <returns></returns>
-        public static string encryptsha1(string pass)
-        {
-            return System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(pass, "sha1");
-        }
+        //public static string encryptsha1(string pass)
+        //{
+        //    return System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(pass, "sha1");
+        //}
 
 
         /// <summary>
@@ -662,278 +637,7 @@ namespace MyData
         #endregion
 
         #region 流水号管理
-        /// <summary>
-        /// 会员编号
-        /// </summary>
-        /// <param name="tablename"></param>
-        /// <param name="lm"></param>
-        /// <returns></returns>
-        public static string getlsh_HYBH()
-        {
-
-            string tablename = "会员编号";
-            string lm = "会员编号";
-            //string qz = "2101";
-            OleDbConnection conn = DataBase.Conn();
-            OleDbCommand cmd;
-            string rq = "800";					//日期
-            int num;					//序号
-            string rnum = "";
-            conn.Open();
-            try
-            {
-                cmd = new OleDbCommand("select count(*) from sys_lshglb where bm='" + tablename + "' and lm='" + lm + "' and rq='" + rq + "'", conn);
-                num = int.Parse(cmd.ExecuteScalar().ToString());
-                if (num > 0)
-                {
-                    int xh;
-                    cmd.CommandText = "select xh from sys_lshglb where bm='" + tablename + "' and lm='" + lm + "' and rq='" + rq + "'";
-                    xh = int.Parse(cmd.ExecuteScalar().ToString());
-                    int xxx = xh + 1;
-                    cmd.CommandText = "update sys_lshglb set xh=" + xxx.ToString() + " where bm='" + tablename + "' and lm='" + lm + "' and rq='" + rq + "'";
-                    cmd.ExecuteNonQuery();
-                    rnum = rq + getxh(xh + 1,5);
-                }
-                else
-                {
-                    cmd.CommandText = "insert into sys_lshglb(xh,bm,lm,rq) values(1314,'" + tablename + "','" + lm + "','" + rq + "')";
-                    cmd.ExecuteNonQuery();
-                    rnum = rq + "01314";
-                }
-            }
-            catch
-            {
-
-            }
-            conn.Close();
-            return rnum;
-        }
-        public static string getlsh_HYBM(string tjrbm)
-        {
-
-           string tablename = "会员编码";
-           string lm = tjrbm;
-
-            OleDbConnection conn = DataBase.Conn();
-            OleDbCommand cmd;
-            string rq;					//日期
-            int num;					//序号
-            string rnum = "";
-            rq = tjrbm;
-            conn.Open();
-            try
-            {
-                cmd = new OleDbCommand("select count(*) from sys_lshglb where bm='" + tablename + "' and lm='" + lm + "' and rq='" + rq + "'", conn);
-                num = int.Parse(cmd.ExecuteScalar().ToString());
-                if (num > 0)
-                {
-                    int xh;
-                    cmd.CommandText = "select xh from sys_lshglb where bm='" + tablename + "' and lm='" + lm + "' and rq='" + rq + "'";
-                    xh = int.Parse(cmd.ExecuteScalar().ToString());
-                    int xxx = xh + 1;
-                    cmd.CommandText = "update sys_lshglb set xh=" + xxx.ToString() + " where bm='" + tablename + "' and lm='" + lm + "' and rq='" + rq + "'";
-                    cmd.ExecuteNonQuery();
-                    rnum = rq + getxh(xh + 1, 4);
-                }
-                else
-                {
-                    cmd.CommandText = "insert into sys_lshglb(xh,bm,lm,rq) values(1,'" + tablename + "','" + lm + "','" + rq + "')";
-                    cmd.ExecuteNonQuery();
-                    rnum = rq + "0001";
-                }
-            }
-            catch
-            {
-
-            }
-            conn.Close();
-            return rnum;
-        }
-
-        /// <summary>
-        /// 取得流水号
-        /// </summary>
-        /// <param name="tablename">表名</param>
-        /// <param name="lm">列名</param>
-        /// <returns>流水号</returns>
-        public static string getlsh(string tablename, string lm)
-        {
-
-            tablename = tablename.ToLower();
-            lm = lm.ToLower();
-
-            OleDbConnection conn = DataBase.Conn();
-            OleDbCommand cmd;
-            string rq;					//日期
-            int num;					//序号
-            string rnum = "";
-            rq = getrq();
-            conn.Open();
-            try
-            {
-                cmd = new OleDbCommand("select count(*) from sys_lshglb where bm='" + tablename + "' and lm='" + lm + "' and rq='" + rq + "'", conn);
-                num = int.Parse(cmd.ExecuteScalar().ToString());
-                if (num > 0)
-                {
-                    int xh;
-                    cmd.CommandText = "select xh from sys_lshglb where bm='" + tablename + "' and lm='" + lm + "' and rq='" + rq + "'";
-                    xh = int.Parse(cmd.ExecuteScalar().ToString());
-                    int xxx = xh + 1;
-                    cmd.CommandText = "update sys_lshglb set xh=" + xxx.ToString() + " where bm='" + tablename + "' and lm='" + lm + "' and rq='" + rq + "'";
-                    cmd.ExecuteNonQuery();
-                    rnum = rq + getxh(xh + 1,4);
-                }
-                else
-                {
-                    cmd.CommandText = "insert into sys_lshglb(xh,bm,lm,rq) values(1,'" + tablename + "','" + lm + "','" + rq + "')";
-                    cmd.ExecuteNonQuery();
-                    rnum = rq + "0001";
-                }
-            }
-            catch
-            {
-
-            }
-            conn.Close();
-            return rnum;
-        }
-
-        /// <summary>
-        /// 取得流水号
-        /// </summary>
-        /// <param name="tablename">表名</param>
-        /// <param name="lm">列名</param>
-        /// <returns>流水号</returns>
-        public static string getlsh(string tablename, string lm, OleDbTransaction tr)
-        {
-            tablename = tablename.ToLower();
-            lm = lm.ToLower();
-
-            OleDbCommand cmd;
-            string rq;					//日期
-            int num;					//序号
-            string rnum = "";
-            rq = getrq();
-
-            try
-            {
-                cmd = new OleDbCommand("select count(*) from sys_lshglb where bm='" + tablename + "' and lm='" + lm + "' and rq='" + rq + "'", tr.Connection);
-                cmd.Transaction = tr;
-                num = int.Parse(cmd.ExecuteScalar().ToString());
-                if (num > 0)
-                {
-                    int xh;
-                    cmd.CommandText = "select xh from sys_lshglb where bm='" + tablename + "' and lm='" + lm + "' and rq='" + rq + "'";
-                    xh = int.Parse(cmd.ExecuteScalar().ToString());
-                    int xxx = xh + 1;
-                    cmd.CommandText = "update sys_lshglb set xh=" + xxx.ToString() + " where bm='" + tablename + "' and lm='" + lm + "' and rq='" + rq + "'";
-                    cmd.ExecuteNonQuery();
-                    rnum = rq + getxh(xh + 1,4);
-                }
-                else
-                {
-                    cmd.CommandText = "insert into sys_lshglb(xh,bm,lm,rq) values(1,'" + tablename + "','" + lm + "','" + rq + "')";
-                    cmd.ExecuteNonQuery();
-                    rnum = rq + "0001";
-                }
-            }
-            catch (System.Exception e)
-            {
-                throw e;
-            }
-            return rnum;
-
-        }
-
-
-
-
-        /// <summary>
-        /// 取得36位流水号
-        /// </summary>
-        /// <param name="tr">外部事务</param>
-        /// <param name="talbename">表名</param>
-        /// <param name="lm">列名</param>
-        /// <returns></returns>
-        public static string getlsh36(OleDbTransaction tr, string tablename, string lm)
-        {
-            tablename = tablename.ToLower();
-            if (lm != "X")
-                lm = lm.ToLower();
-
-            string rq;//日期
-            int num;//序号
-            string rnum = "";
-            try
-            {
-                num = Int32.Parse(DataBase.Base_Scalar("select " + OleDbIsNull("count(*)", "0") + " from sys_lshglb where bm='" + tablename + "' and lm='" + lm + "'", tr));
-                if (num > 0)
-                {
-                    string xh;
-                    xh = DataBase.Base_Scalar("select " + OleDbIsNull("rq", "'0001'") + " from sys_lshglb where bm='" + tablename + "' and lm='" + lm + "' and xh=1", tr);
-                    if (xh != "0000")
-                    {
-                        xh = getxh(4, xh);
-                        DataBase.Base_cmd("update sys_lshglb set rq='" + xh + "' where bm='" + tablename + "' and lm='" + lm + "' and xh=1", tr);
-                    }
-                    rnum = xh;
-                }
-                else
-                {
-                    DataBase.Base_cmd("insert into sys_lshglb(xh,bm,lm,rq) values(1,'" + tablename + "','" + lm + "','0001')", tr);
-                    rnum = "0001";
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-            return rnum;
-        }
-
-
-        /// <summary>
-        /// 取得36位流水号
-        /// </summary>
-        /// <param name="tablename"></param>
-        /// <param name="lm"></param>
-        /// <returns></returns>
-        public static string getlsh36(string tablename, string lm)
-        {
-            tablename = tablename.ToLower();
-            if (lm != "X")
-                lm = lm.ToLower();
-
-            string rq;//'日期
-            int num;//序号
-            string rnum = "";
-            try
-            {
-                num = Int32.Parse(DataBase.Base_Scalar("select " + OleDbIsNull("count(*)", "0") + " from sys_lshglb where bm='" + tablename + "' and lm='" + lm + "'"));
-                if (num > 0)
-                {
-                    string xh;
-                    xh = DataBase.Base_Scalar("select " + OleDbIsNull("rq", "'0001'") + " from sys_lshglb where bm='" + tablename + "' and lm='" + lm + "' and xh=1");
-                    if (xh != "0000")
-                    {
-                        xh = getxh(4, xh);
-                        DataBase.Base_cmd("update sys_lshglb set rq='" + xh + "' where bm='" + tablename + "' and lm='" + lm + "' and xh=1");
-                    }
-                    rnum = xh;
-                }
-                else
-                {
-                    DataBase.Base_cmd("insert into sys_lshglb(xh,bm,lm,rq) values(1,'" + tablename + "','" + lm + "','0001')");
-                    rnum = "0001";
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return rnum;
-        }
+       
         #endregion
 
         #region sql对应函数变换
@@ -1262,19 +966,6 @@ namespace MyData
             return ConfigurationManager.AppSettings["BMTree"];
         }
 
-
-        /// <summary>
-        /// 默认密码判断
-        /// </summary>
-        /// <param name="userid"></param>
-        /// <returns></returns>
-        public static bool remm(string userid)
-        {
-            if (DataBase.Base_Scalar("select password from SYS_USER where userid='" + userid + "'") == DataOper.encryptsha1("666666"))
-                return true;
-            else
-                return false;
-        }
         #endregion
 
         /// <summary>
@@ -1398,23 +1089,7 @@ namespace MyData
             //}
         }
 
-        public static void addlog(string userid, string ip, string cz)
-        {
-            DataBase.Base_cmd("insert into sys_log (logid,username,ip,cz,czsj) values ('" + getlsh("sys_log", "logid") + "','" + setTrueString(userid) + "','" + setTrueString(ip) + "','" + setTrueString(cz) + "'," + OleDbgetdate() + ")");
-        }
-
-        public static void addlog(string userid, string ip, string cz, OleDbTransaction tr)
-        {
-            try
-            {
-                DataBase.Base_cmd("insert into sys_log (logid,username,ip,cz,czsj) values ('" + getlsh("sys_log", "logid") + "','" + setTrueString(userid) + "','" + setTrueString(ip) + "','" + setTrueString(cz) + "'," + OleDbgetdate() + ")", tr);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
+        
         public static string DateToString(string zd)
         {
             if (DataBase.OleDbClass() == "0")

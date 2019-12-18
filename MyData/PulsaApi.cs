@@ -8,7 +8,7 @@ namespace MyData
 {
     public class PulsaApi
     {
-        String pulsaApiUrl = "";
+         
 
     }
 }

@@ -569,59 +569,6 @@ namespace MyData
         }
         #endregion
 
-        /// <summary>
-        /// 记录操作日志
-        /// </summary>
-        /// <param name="userid">操作人员</param>
-        /// <param name="btable">操作数据表名</param>
-        /// <param name="bcode">操作数据CODE</param>
-        /// <param name="sm">说明</param>
-        /// <param name="czlx">操作类型(增加、删除、修改、查询)</param>
-        /// <param name="bz">备注</param>
-        public static void Base_czrz(string userid, string btable, string bcode, string sm, string czlx, string bz)
-        {
-
-            string HostName = Dns.GetHostName();
-            IPHostEntry MyEntry = Dns.GetHostByName(Dns.GetHostName());
-            IPAddress MyAddress = new IPAddress(MyEntry.AddressList[0].Address);
-
-            Base_cmd("insert into sys_czrz(userid,btable,bcode,sm,czlx,bz,cztime,ip)values('" + userid + "','" + btable + "','" + bcode + "','" + sm + "','" + czlx + "','" + bz + "',getdate(),'" + MyAddress + "')");
-        }
-
-        /// <summary>
-        /// 查询前N条数据
-        /// </summary>
-        /// <param name="sql">查询sql语句</param>
-        /// <param name="dqy">当前页</param>
-        /// <param name="num">每页记录条数</param>
-        /// <returns></returns>
-        public static string TopQuery(string sql, string dqy, string num)
-        {
-            string zys = "", topnum = "", colums = "", mess = "N";
-            int count = DataBase.Base_count("(" + sql + ")a", " 1=1 ");
-            if (String.IsNullOrEmpty(dqy))
-                dqy = "1";
-            if (String.IsNullOrEmpty(num))
-                num = "10";
-            if (count % Convert.ToInt32(num) == 0)
-                zys = (count / Convert.ToInt32(num)).ToString();
-            else
-                zys = ((count / Convert.ToInt32(num)) + 1).ToString();
-            colums = sql.Substring(6, sql.Length - 6);
-            topnum = (Convert.ToInt32(dqy) * Convert.ToInt32(num)).ToString();
-            DataTable dt = DataBase.Base_dt(" select top(" + topnum + ") '" + zys + "' as zys,'" + dqy + "' as dqy," + count + " as sum," + colums);
-            if (dt.Rows.Count < 1)
-                return mess;
-            else
-            {
-                for (;;)
-                {
-                    if (dt.Rows.Count <= Convert.ToInt32(num))
-                        break;
-                    dt.Rows.RemoveAt(0);
-                }
-                return Newtonsoft.Json.JsonConvert.SerializeObject(dt);
-            }
-        }
+        
     }
 }

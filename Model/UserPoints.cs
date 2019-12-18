@@ -11,13 +11,15 @@ namespace Model
     using System;
     using System.Collections.Generic;
 
-    public partial class PulsaPrefix
+    public partial class UserPoints
     {
-        public string Code { get; set; }
-        public string OperatorID { get; set; }
-        public string OperatorName { get; set; }
-        public string DataChannel { get; set; }
-        public string PulsaChannel { get; set; }
-        public string LogoUrl { get; set; }
+        public string Id { get; set; }
+        public string OrderId { get; set; }
+        public decimal Point { get; set; }
+        public string ToOpenid { get; set; }
+        public string FromWechatOpenid { get; set; }
+        public string FromWechatNickname { get; set; }
+        public System.DateTime CreateTime { get; set; }
+        public int Status { get; set; }
     }
 }

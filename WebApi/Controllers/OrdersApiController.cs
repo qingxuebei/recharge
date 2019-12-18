@@ -33,14 +33,14 @@ namespace WebApi.Controllers
 
                 BLL.OrdersBLL orderBLL = new BLL.OrdersBLL();
                 Model.Orders orders = new Model.Orders();
-                orders.orderId = MyData.Utils.GetRamCode();
-                orders.pulsa_code = pulsaProduct.pulsa_code;
-                orders.cn_pulsatype = pulsaProduct.pulsa_type == "data" ? "流量" : "话费";
-                orders.masaaktif = pulsaProduct.masaaktif;
-                orders.cn_quatity = pulsaProduct.cn_quatity;
-                orders.cn_op = pulsaProduct.cn_op;
-                orders.cn_price = pulsaProduct.cn_price;
-                orders.cn_oldprice = pulsaProduct.cn_oldprice;
+                orders.OrderId = MyData.Utils.GetRamCode();
+                orders.PulsaCode = pulsaProduct.pulsa_code;
+                orders.CnPulsatype = pulsaProduct.pulsa_type == "data" ? "流量" : "话费";
+                orders.Masaaktif = pulsaProduct.masaaktif;
+                orders.CnQuatity = pulsaProduct.cn_quatity;
+                orders.CnOp = pulsaProduct.cn_op;
+                orders.CnPrice = pulsaProduct.cn_price;
+                orders.CnOldprice = pulsaProduct.cn_oldprice;
                 orders.OperatorName = MyData.Utils.ReplaceSQLChar(OperatorName);
                 orderBLL.Insert(orders);
 

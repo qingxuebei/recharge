@@ -103,7 +103,7 @@
         //设置登录窗口
         function openPwd() {
             $('#w').window({
-                title: 'Update Password',
+                title: '修改密码',
                 width: 300,
                 modal: true,
                 shadow: true,
@@ -125,16 +125,16 @@
             var $rePass = $('#txtRePass');
 
             if ($newpass.val() == '') {
-                msgShow('System warning', 'Please enter password！', 'warning');
+                msgShow('System warning', '请输入密码！', 'warning');
                 return false;
             }
             if ($rePass.val() == '') {
-                msgShow('System warning', 'Please enter password again！', 'warning');
+                msgShow('System warning', '请再输入一次密码！', 'warning');
                 return false;
             }
 
             if ($newpass.val() != $rePass.val()) {
-                msgShow('System warning', 'The password is not the same twice! please enter again', 'warning');
+                msgShow('System warning', '两次输入的密码不一致，请重试', 'warning');
                 return false;
             }
             $.ajax({
@@ -147,7 +147,7 @@
                 },
                 success: function (mess) {
                     if (mess == "1") {
-                        msgShow('System warning', "Update success！", 'info');
+                        msgShow('System warning', "修改成功！", 'info');
                         closePwd()
                     } else {
                         msgShow('System warning', mess, 'info');
@@ -174,7 +174,7 @@
             $('#btnCancel').click(function () { closePwd(); })
 
             $('#loginOut').click(function () {
-                $.messager.confirm('System warning', 'Do you want to sign out this login?', function (r) {
+                $.messager.confirm('System warning', '确定退出登录?', function (r) {
                     $.ajax({
                         datatype: "text",
                         url: "/ashx/Base.ashx?i=" + Math.random(),
@@ -204,13 +204,13 @@
     <div id="loading-mask" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background: #D2E0F2; z-index: 20000">
         <div id="pageloading" style="position: absolute; top: 50%; left: 50%; margin: -120px 0px 0px -120px; text-align: center; border: 2px solid #8DB2E3; width: 200px; height: 40px; font-size: 14px; padding: 10px; font-weight: bold; background: #fff; color: #15428B;">
             <img src="images/loading.gif" align="absmiddle" />
-            Loading, please wait...
+            加载中，请稍后...
         </div>
     </div>
     <div region="north" split="true" border="false" style="overflow: hidden; height: 30px; background: url(images/layout-browser-hd-bg.gif) #7f99be repeat-x center 50%; line-height: 20px; color: #fff; font-family: Verdana, 微软雅黑,黑体">
-        <span style="float: right; padding-right: 20px;" class="head">Welcome
+        <span style="float: right; padding-right: 20px;" class="head">欢迎
             <asp:Label ID="lbl_NAME" runat="server" Text=""></asp:Label>
-            <a href="#" id="editpass">Update Password</a> <a href="#" id="loginOut">Sign Out</a></span>
+            <a href="#" id="editpass">修改密码</a> <a href="#" id="loginOut">Sign Out</a></span>
         <span style="padding-left: 10px; font-size: 16px;">
             <img src="images/blocks.gif" width="20" height="20" align="absmiddle" />
             Mangement</span>
@@ -240,21 +240,21 @@
             <div region="center" border="false" style="padding: 10px; background: #fff; border: 1px solid #ccc;">
                 <table cellpadding="3">
                     <tr>
-                        <td>Old Password：
+                        <td>旧密码：
                         </td>
                         <td>
                             <input id="Password1" type="password" class="easyui-validatebox txt01" data-options="required:true" />
                         </td>
                     </tr>
                     <tr>
-                        <td>New Password：
+                        <td>新密码：
                         </td>
                         <td>
                             <input id="txtNewPass" type="password" class="easyui-validatebox txt01" data-options="required:true" />
                         </td>
                     </tr>
                     <tr>
-                        <td>Confirm Password：
+                        <td>确认密码：
                         </td>
                         <td>
                             <input id="txtRePass" type="password" class="easyui-validatebox txt01" data-options="required:true" />
@@ -272,16 +272,16 @@
         <div id="tabupdate">tabupdate</div>
 
         <div class="menu-sep"></div>
-        <div id="close">close</div>
-        <div id="closeall">closeall</div>
-        <div id="closeother">closeother</div>
+        <div id="close">关闭</div>
+        <div id="closeall">关闭所有</div>
+        <div id="closeother">关闭其他</div>
 
         <div class="menu-sep"></div>
-        <div id="closeright">closeright</div>
-        <div id="closeleft">closeleft</div>
+        <div id="closeright">关闭右侧</div>
+        <div id="closeleft">关闭左侧</div>
 
         <div class="menu-sep"></div>
-        <div id="exit">Exit</div>
+        <div id="exit">修改</div>
     </div>
 </body>
 </html>

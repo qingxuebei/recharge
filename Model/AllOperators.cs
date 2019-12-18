@@ -11,13 +11,11 @@ namespace Model
     using System;
     using System.Collections.Generic;
 
-    public partial class PulsaPrefix
+    public partial class AllOperators
     {
-        public string Code { get; set; }
-        public string OperatorID { get; set; }
-        public string OperatorName { get; set; }
-        public string DataChannel { get; set; }
-        public string PulsaChannel { get; set; }
-        public string LogoUrl { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string Country { get; set; }
     }
 }

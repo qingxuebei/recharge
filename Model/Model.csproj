@@ -40,6 +40,8 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllOperators.cs" />
+    <Compile Include="AllTypes.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Orders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -48,6 +50,8 @@
     <Compile Include="PulsaProduct.cs" />
     <Compile Include="Logs.cs" />
     <Compile Include="SysUser.cs" />
+    <Compile Include="UserPoints.cs" />
+    <Compile Include="WeChatUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
