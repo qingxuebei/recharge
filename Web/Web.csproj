@@ -110,6 +110,7 @@
     <Content Include="css\info.css" />
     <Content Include="css\login.css" />
     <Content Include="details\Market.aspx" />
+    <Content Include="details\PulsaProduct.aspx" />
     <Content Include="details\test.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\buttonbg.png" />
@@ -121,6 +122,7 @@
     <Content Include="js\login.js" />
     <Content Include="details\backHome.aspx" />
     <Content Include="js\Market.js" />
+    <Content Include="js\PulsaProduct.js" />
     <Content Include="login.aspx" />
     <Content Include="obj\Debug\Web.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Web.dll" />
@@ -584,6 +586,7 @@
     <Content Include="ashx\Market.ashx" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\Web.csprojResolveAssemblyReference.cache" />
+    <Content Include="ashx\PulsaProduct.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -692,6 +695,9 @@
     <Compile Include="ashx\Market.ashx.cs">
       <DependentUpon>Market.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\PulsaProduct.ashx.cs">
+      <DependentUpon>PulsaProduct.ashx</DependentUpon>
+    </Compile>
     <Compile Include="details\backHome.aspx.cs">
       <DependentUpon>backHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -705,6 +711,13 @@
     </Compile>
     <Compile Include="details\Market.aspx.designer.cs">
       <DependentUpon>Market.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="details\PulsaProduct.aspx.cs">
+      <DependentUpon>PulsaProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="details\PulsaProduct.aspx.designer.cs">
+      <DependentUpon>PulsaProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="details\test.aspx.cs">
       <DependentUpon>test.aspx</DependentUpon>

@@ -19,13 +19,13 @@
 
 
 
-    //$('#btn_Login').click(function () {
-    //    if ($.trim($('#userid').val()) == '') {
-    //        alert('请输入您的用户名');
-    //        return false;
-    //    } else if ($.trim($('#pwd').val()) == '') {
-    //        alert('请输入密码');
-    //        return false;
-    //    }
-    //});
+    $('#btn_Login').click(function () {
+        if ($.trim($('#userid').val()) == '') {
+            alert('请输入您的用户名');
+            return false;
+        } else if ($.trim($('#pwd').val()) == '') {
+            alert('请输入密码');
+            return false;
+        }
+    });
 })

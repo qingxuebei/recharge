@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MyData;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.OleDb;
 using System.Linq;
 using System.Text;
@@ -66,7 +68,6 @@ namespace DAL
             String sql = @"SELECT [pulsa_code]
                               ,[pulsa_op]
                               ,[pulsa_nominal]
-                              ,[pulsa_price]
                               ,[pulsa_type]
                               ,[masaaktif]
                               ,[status]
@@ -74,8 +75,6 @@ namespace DAL
                               ,[cn_op]
                               ,[cn_status]
                               ,[cn_price]
-                              ,[create_time]
-                              ,[update_time]
                               ,[pulsa_channel]
                               ,[cn_oldprice]
                           FROM [recharge].[dbo].[PulsaProduct] with(nolock)";
@@ -104,6 +103,47 @@ namespace DAL
                           FROM [recharge].[dbo].[PulsaProduct] with(nolock) where pulsa_code='" + pulsaCode + "'";
 
             return MyData.DataBase.Base_getFirst<Model.PulsaProduct>(sql);
+        }
+
+        /// <summary>
+        /// 分页获取整个列表
+        /// </summary>
+        /// <param name="strWhere">查询条件</param>
+        /// <param name="orderby">排序字段</param>
+        /// <param name="startIndex">起始记录</param>
+        /// <param name="endIndex">截止记录</param>
+        /// <returns></returns>
+        public DataTable GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("SELECT * FROM ( ");
+            strSql.Append(" SELECT ROW_NUMBER() OVER (");
+            if (!string.IsNullOrEmpty(orderby.Trim()))
+            {
+                strSql.Append("order by T." + orderby);
+            }
+            else
+            {
+                strSql.Append("order by T.SortId desc");
+            }
+            strSql.Append(")AS Row, T.*  from PulsaProduct T ");
+            if (!string.IsNullOrEmpty(strWhere.Trim()))
+            {
+                strSql.Append(" WHERE " + strWhere);
+            }
+            strSql.Append(" ) TT");
+            strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
+            return DataBase.Base_dt(strSql.ToString());
+        }
+
+        /// <summary>
+        /// 获取条数
+        /// </summary>
+        /// <param name="strWhere">查询条件</param>
+        /// <returns></returns>
+        public int GetRecordCount(string strWhere)
+        {
+            return DataBase.Base_count("PulsaProduct", strWhere);
         }
     }
 }

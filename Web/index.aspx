@@ -28,9 +28,9 @@
                             "url": "/details/Market.aspx"
                         }, {
                             "menuid": "4",
-                            "menuname": "User Access Record",
+                            "menuname": "产品列表",
                             "icon": "icon-nav",
-                            "url": "/details/AccessRecord.aspx"
+                            "url": "/details/PulsaProduct.aspx"
                         }
                     ]
                 }
