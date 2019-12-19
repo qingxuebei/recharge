@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllTypesDal.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="MarketDal.cs" />
     <Compile Include="OrdersDal.cs" />

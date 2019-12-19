@@ -13,7 +13,7 @@ namespace Model
 
     public partial class UserPoints
     {
-        public string Id { get; set; }
+        public string ID { get; set; }
         public string OrderId { get; set; }
         public decimal Point { get; set; }
         public string ToOpenid { get; set; }

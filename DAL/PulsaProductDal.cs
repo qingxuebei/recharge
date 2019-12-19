@@ -124,7 +124,7 @@ namespace DAL
             }
             else
             {
-                strSql.Append("order by T.SortId desc");
+                strSql.Append("order by T.pulsa_code desc");
             }
             strSql.Append(")AS Row, T.*  from PulsaProduct T ");
             if (!string.IsNullOrEmpty(strWhere.Trim()))
@@ -144,6 +144,22 @@ namespace DAL
         public int GetRecordCount(string strWhere)
         {
             return DataBase.Base_count("PulsaProduct", strWhere);
+        }
+
+        public bool Update(Model.PulsaProduct pulsaProduct)
+        {
+            String sql = @"update PulsaProduct set cn_op='{0}',cn_price={1},cn_quatity='{2}',cn_status={3},create_time='{4}'
+                            where pulsa_code='{5}'";
+            sql = String.Format(sql,
+                pulsaProduct.cn_op,
+                pulsaProduct.cn_price,
+                pulsaProduct.cn_quatity,
+                pulsaProduct.cn_status,
+                DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                pulsaProduct.pulsa_code);
+
+            return DataBase.Base_cmd(sql);
+
         }
     }
 }

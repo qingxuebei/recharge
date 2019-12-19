@@ -760,7 +760,7 @@ namespace MyData
             foreach (PropertyInfo pInfo in model.GetType().GetProperties())
             {
                 object val = getValueByColumnName(dr, pInfo.Name);
-                pInfo.SetValue(model, val, null);
+                pInfo.SetValue(model, Convert.ChangeType(val, pInfo.PropertyType), null);
             }
             return model;
         }

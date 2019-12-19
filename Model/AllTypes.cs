@@ -13,7 +13,7 @@ namespace Model
 
     public partial class AllTypes
     {
-        public string Id { get; set; }
+        public string ID { get; set; }
         public string Types { get; set; }
         public string Channel { get; set; }
         public string OperatorsId { get; set; }

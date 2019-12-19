@@ -33,7 +33,7 @@ namespace BLL
         /// <returns></returns>
         public List<Model.PulsaProductShow> getNormalShowList()
         {
-            
+
             String strWhere = " and cn_status=1 and status = 'active' order by cn_price";
             DAL.PulsaProductDal pulsaProductDal = new DAL.PulsaProductDal();
             return pulsaProductDal.getShowListByQuery(strWhere);
@@ -59,6 +59,12 @@ namespace BLL
         {
             DAL.PulsaProductDal pulsaProductDal = new DAL.PulsaProductDal();
             return pulsaProductDal.GetRecordCount(strWhere);
+        }
+
+        public bool Update(Model.PulsaProduct pulsaProduct)
+        {
+            DAL.PulsaProductDal pulsaProductDal = new DAL.PulsaProductDal();
+            return pulsaProductDal.Update(pulsaProduct);
         }
     }
 }

@@ -128,7 +128,6 @@
     <Content Include="obj\Debug\Web.dll" />
     <Content Include="obj\Debug\Web.pdb" />
     <Content Include="packages.config" />
-    <Content Include="css\default.css.bak" />
     <Content Include="scripts\.DS_Store" />
     <Content Include="ashx\Base.ashx" />
     <Content Include="Log4Net.config" />

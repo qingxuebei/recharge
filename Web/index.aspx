@@ -229,7 +229,7 @@
         <div id="tabs" class="easyui-tabs" fit="true" border="false">
             <div title="Welcome" style="padding: 20px; overflow: hidden; color: red;">
                 <%--<h1 style="font-size: 24px;">君和软件</h1>--%>
-                <iframe id="sysMain" frameborder="0" name="sysMain" width="100%" height="600px" src="details/backHome.aspx"></iframe>
+                <iframe id="sysMain" frameborder="0" name="sysMain" width="100%" height="600px" src=""></iframe>
             </div>
         </div>
     </div>

@@ -1,7 +1,7 @@
 ﻿
 document.write("<meta  name=\"keywords\"  content=\"\">");
 document.write("<meta  name=\"description\"  content=\"\">");
-document.write("<link href='css/default.css' rel='stylesheet' type='text/css' />");
+//document.write("<link href='../css/default.css' rel='stylesheet' type='text/css' />");
 document.write("<link rel='stylesheet' type='text/css' href='../scripts/themes/bootstrap/easyui.css' />");
 document.write("<link rel='stylesheet' type='text/css' href='../scripts/themes/icon.css' />");
 document.write("<script type='text/javascript' src='../scripts/jquery.min.js'></script>");

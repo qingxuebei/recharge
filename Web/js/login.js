@@ -20,10 +20,10 @@
 
 
     $('#btn_Login').click(function () {
-        if ($.trim($('#userid').val()) == '') {
+        if ($.trim($('#username').val()) == '') {
             alert('请输入您的用户名');
             return false;
-        } else if ($.trim($('#pwd').val()) == '') {
+        } else if ($.trim($('#password').val()) == '') {
             alert('请输入密码');
             return false;
         }

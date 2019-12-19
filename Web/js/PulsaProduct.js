@@ -16,19 +16,19 @@
         pageList: [20, 30, 40, 50],
         queryParams: {
             type: "get",
-            wherestr: $("#txt_Name_Sel").val() + "," + $("#txt_State_Sel").combobox('getValue')
+            wherestr: $("#txt_operator").combobox('getValue') + "," + $("#txt_types_Sel").combobox('getValue') + "," + $("#txt_status_Sel").combobox('getValue')
         },
         columns: [[
-                    { field: "pulsa_code", title: '编号', width: 100, align: 'left' },
-                    { field: 'pulsa_type', title: '充值类型', width: 100, align: 'left' },
-                    { field: 'pulsa_nominal', title: '外文介绍', width: 200, align: 'left' },
-                    { field: 'cn_quatity', title: '显示标签', width: 100, align: 'left' },
-                    { field: 'cn_op', title: '中文介绍', width: 200, align: 'left' },
-                    { field: 'pulsa_price', title: '外文价格', width: 100, align: 'left' },
-                    { field: 'cn_price', title: '中文价格', width: 100, align: 'left' },
-                    { field: 'masaaktif', title: '有效天数', width: 100, align: 'left' },
+                    { field: "pulsa_code", title: '编号', width: 100, align: 'right' },
+                    { field: 'pulsa_type', title: '充值类型', width: 100, align: 'right' },
+                    { field: 'pulsa_nominal', title: '供应商介绍', width: 200, align: 'right' },
+                    { field: 'cn_quatity', title: '显示标签', width: 100, align: 'right' },
+                    { field: 'cn_op', title: '显示介绍', width: 200, align: 'right' },
+                    { field: 'pulsa_price', title: '供应商价格', width: 100, align: 'right' },
+                    { field: 'cn_price', title: '显示价格', width: 100, align: 'right' },
+                    { field: 'masaaktif', title: '有效天数', width: 100, align: 'right' },
                     {
-                        field: 'cn_status', title: '状态', width: 100, align: 'left',
+                        field: 'cn_status', title: '状态', width: 100, align: 'right',
                         formatter: function (value, row, index) {
                             if (value == 0) {
                                 return "已禁用";
@@ -51,59 +51,36 @@
     $('#lbtn_get').bind('click', function () {
         $('#dg').datagrid('load', {
             type: "get",
-            wherestr: $("#txt_Name_Sel").val() + "," + $("#txt_State_Sel").combobox('getValue')
+            wherestr: $("#txt_operator").combobox('getValue') + "," + $("#txt_types_Sel").combobox('getValue') + "," + $("#txt_status_Sel").combobox('getValue')
         });
     });
 
-    $('#dlg_market').dialog({
+    $('#dlg_pulsa_product').dialog({
         buttons: [{
             id: "btn_mbtj",
             text: 'Save',
             iconCls: "icon-ok",//{ mbmc: $("#txt_mb").val()}
             handler: function () {
 
-                if ($("#txt_IconUrl").val() == "") {
-                    alert('Please enter the IconUrl！');
+                if ($("#txt_cn_quatity").val() == "") {
+                    alert('显示标签不能为空！');
                     return;
-                } if ($("#txt_Name").val() == "") {
-                    alert('Please enter the name！');
+                } if ($("#txt_cn_op").val() == "") {
+                    alert('显示介绍不能为空！');
                     return;
-                } if ($("#txt_SmsUrl").val() == "") {
-                    alert('Please enter the SmsUrl！');
+                } if ($("#txt_cn_price").val() == "") {
+                    alert('显示价格不能为空！');
                     return;
-                } if ($("#txt_MaxMoney").val() == "") {
-                    alert('Please enter the MaxMoney！');
-                    return;
-                } if ($("#txt_Tenure").val() == "") {
-                    alert('Please enter the Tenure！');
-                    return;
-                }
-
-                if ($("#txt_Rate").val() == "") {
-                    alert('Please enter the Rate！');
-                    return;
-                } if ($("#txt_ApprovlTime").val() == "") {
-                    alert('Please enter the ApprovlTime！');
-                    return;
-                } if ($("#txt_Disbursement").val() == "") {
-                    alert('Please enter the Disbursement！');
-                    return;
-                } if ($("#txt_SortId").val() == "") {
-                    alert('Please enter the SortId！');
-                    return;
-                } if ($("#txt_State").combobox('getValue') == "") {
-                    alert('Please enter the Tenure！');
-                    return;
-                }
+                } 
                 loadMbData();
                 $.ajax({
                     datatype: "text",
-                    url: "../ashx/market.ashx?i=" + Math.random(),
+                    url: "../ashx/PulsaProduct.ashx?i=" + Math.random(),
                     data: csdata,
                     success: function (mess) {
                         if (mess == "0") {
                             $.messager.alert("Tips", "保存成功！", "info");
-                            $('#dlg_market').dialog('close');
+                            $('#dlg_pulsa_product').dialog('close');
                             $("#lbtn_get").click();
                         } else {
                             alert(mess);
@@ -116,7 +93,7 @@
             text: 'Cancel',
             iconCls: "icon-cancel",
             handler: function () {
-                $('#dlg_market').dialog('close');
+                $('#dlg_pulsa_product').dialog('close');
             }
         }]
     });
@@ -129,58 +106,27 @@ function loadMbData() {
     }
     csdata = {
         type: type,
-        ID: $("#txt_ID").val(),
-        IconUrl: $("#txt_IconUrl").val(),
-        Name: $("#txt_Name").val(),
-        SmsUrl: $('#txt_SmsUrl').val(),
-
-        MaxMoney: $("#txt_MaxMoney").val(),
-        Tenure: $("#txt_Tenure").val(),
-        Rate: $("#txt_Rate").val(),
-        ApprovlTime: $('#txt_ApprovlTime').val(),
-
-        Disbursement: $("#txt_Disbursement").val(),
-        SortId: $("#txt_SortId").val(),
-
-        State: $('#txt_State').combobox('getValue')
+        pulsa_code: $("#txt_ID").val(),
+        cn_quatity: $("#txt_cn_quatity").val(),
+        cn_op: $("#txt_cn_op").val(),
+        cn_price: $('#txt_cn_price').val(),
+        cn_status: $("#txt_State").combobox('getValue')
     }
 }
 
-function clear() {
-    $("#txt_ID").val(""),
-    $("#txt_IconUrl").val(""),
-    $("#txt_Name").val(""),
-    $('#txt_SmsUrl').val(""),
-
-    $("#txt_MaxMoney").val(""),
-    $("#txt_Tenure").val(""),
-    $("#txt_Rate").val(""),
-    $('#txt_ApprovlTime').val(""),
-
-    $("#txt_Disbursement").val(""),
-    $("#txt_SortId").numberbox('setValue', 0),
-
-    $('#txt_State').combobox('setValue', "");
-}
 
 function update(index) {
-    $('#dlg_market').dialog('open').dialog('setTitle', 'VIEW');
+    $('#dlg_pulsa_product').dialog('open').dialog('setTitle', 'VIEW');
     $("#dg").datagrid("selectRow", index);
     var row = $("#dg").datagrid("getSelected");
     if (row) {
-        $("#txt_ID").val(row.ID),
-        $("#txt_IconUrl").val(row.IconUrl),
-        $("#txt_Name").val(row.Name),
-        $('#txt_SmsUrl').val(row.SmsUrl),
+        $("#txt_ID").val(row.pulsa_code),
+        $("#lbl_pulsa_nominal").html(row.pulsa_nominal),
+        $("#txt_cn_quatity").val(row.cn_quatity),
+        $('#txt_cn_op').val(row.cn_op),
 
-        $("#txt_MaxMoney").val(row.MaxMoney),
-        $("#txt_Tenure").val(row.Tenure),
-        $("#txt_Rate").val(row.Rate),
-        $('#txt_ApprovlTime').val(row.ApprovlTime),
-
-        $("#txt_Disbursement").val(row.Disbursement),
-        $("#txt_SortId").numberbox('setValue', row.SortId),
-
-        $('#txt_State').combobox('setValue', row.State);
+        $("#lbl_pulsa_price").html(row.pulsa_price),
+        $("#txt_cn_price").val(row.cn_price),
+        $('#txt_State').combobox('setValue', row.cn_status);
     }
 }
