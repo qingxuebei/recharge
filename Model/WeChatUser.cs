@@ -21,5 +21,7 @@ namespace Model
         public string City { get; set; }
         public string Headimgurl { get; set; }
         public System.DateTime CreateTime { get; set; }
+        public string RecommendUserOpenid { get; set; }
+        public string MyRecommendCode { get; set; }
     }
 }

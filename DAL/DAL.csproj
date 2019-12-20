@@ -52,6 +52,7 @@
     <Compile Include="PulsaProductDal.cs" />
     <Compile Include="LogsDal.cs" />
     <Compile Include="SysUserDal.cs" />
+    <Compile Include="WeChatUserDal.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">

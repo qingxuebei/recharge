@@ -50,6 +50,7 @@
     <Compile Include="PulsaPrefixBLL.cs" />
     <Compile Include="PulsaProductBLL.cs" />
     <Compile Include="SysUserBLL.cs" />
+    <Compile Include="WeChatUserBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

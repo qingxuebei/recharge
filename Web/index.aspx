@@ -23,9 +23,9 @@
                     "menus": [
                         {
                             "menuid": "3",
-                            "menuname": "Product",
+                            "menuname": "用户列表",
                             "icon": "icon-nav",
-                            "url": "/details/Market.aspx"
+                            "url": "/details/WeChatUser.aspx"
                         }, {
                             "menuid": "4",
                             "menuname": "产品列表",
