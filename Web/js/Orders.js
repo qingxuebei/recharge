@@ -16,8 +16,8 @@
         pageList: [10, 20, 40, 50],
         queryParams: {
             type: "get",
-            wherestr: $("#txt_Name_Sel").val() + ","
-                + $("#txt_Name_Sel").val() + ","
+            wherestr: $("#txt_OrderId_Sel").val() + ","
+                + $("#txt_OpenId_Sel").val() + ","
                 + $("#txt_operator_Sel").combobox('getValue') + ","
                 + $("#txt_types_Sel").combobox('getValue') + ","
                 + $("#txt_WechatpayState_Sel").combobox('getValue') + ","
@@ -38,11 +38,17 @@
                     { field: 'CnQuatity', title: '显示标签', width: 50, align: 'right' },
                     { field: 'CnOp', title: '显示介绍', width: 200, align: 'right' },
                     { field: 'UsePoints', title: '使用积分', width: 200, align: 'right' },
-                    { field: 'OperatorId', title: '供应商名称', width: 100, align: 'right' },
-                    { field: 'cn_price', title: '显示价格', width: 100, align: 'right' },
-                    { field: 'masaaktif', title: '有效天数', width: 100, align: 'right' },
+                    { field: 'CnPrice', title: '付费价格', width: 100, align: 'right' },
                     {
-                        field: 'cn_status', title: '状态', width: 100, align: 'right',
+                        field: 'WechatpayState', title: '微信支付状态', width: 100, align: 'right',
+                        formatter: function (value, row, index) {
+                            if (value == 0) {
+                                return "已禁用";
+                            } else if (value == 1) { return "已启用"; }
+                        }
+                    },
+                    {
+                        field: 'PulsaState', title: '三方支付状态', width: 100, align: 'right',
                         formatter: function (value, row, index) {
                             if (value == 0) {
                                 return "已禁用";
@@ -65,8 +71,8 @@
     $('#lbtn_get').bind('click', function () {
         $('#dg').datagrid('load', {
             type: "get",
-            wherestr: $("#txt_Name_Sel").val() + ","
-               + $("#txt_Name_Sel").val() + ","
+            wherestr: $("#txt_OrderId_Sel").val() + ","
+               + $("#txt_OpenId_Sel").val() + ","
                + $("#txt_operator_Sel").combobox('getValue') + ","
                + $("#txt_types_Sel").combobox('getValue') + ","
                + $("#txt_WechatpayState_Sel").combobox('getValue') + ","
