@@ -104,7 +104,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Yino.sql" />
+    <Content Include="App_Data\recharge.sql" />
     <Content Include="bin\dotnetCHARTING.dll" />
     <Content Include="bin\log4net.dll" />
     <Content Include="bin\Newtonsoft.Json.dll" />
@@ -593,6 +593,7 @@
     <Content Include="obj\Debug\Web.csprojResolveAssemblyReference.cache" />
     <Content Include="ashx\PulsaProduct.ashx" />
     <Content Include="ashx\WeChatUser.ashx" />
+    <Content Include="ashx\Orders.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -700,6 +701,9 @@
   <ItemGroup>
     <Compile Include="ashx\Market.ashx.cs">
       <DependentUpon>Market.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\Orders.ashx.cs">
+      <DependentUpon>Orders.ashx</DependentUpon>
     </Compile>
     <Compile Include="ashx\PulsaProduct.ashx.cs">
       <DependentUpon>PulsaProduct.ashx</DependentUpon>
