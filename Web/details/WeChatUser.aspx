@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <script src="../scripts/alljs.js"></script>
-    <script src="../js/Orders.js"></script>
+    <script src="../js/WeChatUser.js"></script>
 
 </head>
 <body>

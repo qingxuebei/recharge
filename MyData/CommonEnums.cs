@@ -12,5 +12,13 @@ namespace MyData
         P = 1,
         T = 2
     }
+    public enum WechatpayState
+    {
+        待支付=0
+    }
+    public enum PulsaState
+    {
+        待支付 = 0
+    }
 }
 
