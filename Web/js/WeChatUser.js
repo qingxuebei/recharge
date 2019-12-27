@@ -31,8 +31,8 @@
                         field: 'Sex', title: '性别', width: 50, align: 'right',
                         formatter: function (value, row, index) {
                             if (value == 0) {
-                                return "男";
-                            } else if (value == 1) { return "女"; }
+                                return "女";
+                            } else if (value == 1) { return "男"; }
                         }
                     },
                     { field: 'Country', title: '国家', width: 100, align: 'right' },

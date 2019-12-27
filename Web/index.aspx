@@ -31,6 +31,16 @@
                             "menuname": "产品列表",
                             "icon": "icon-nav",
                             "url": "/details/PulsaProduct.aspx"
+                        }, {
+                            "menuid": "5",
+                            "menuname": "订单列表",
+                            "icon": "icon-nav",
+                            "url": "/details/Orders.aspx"
+                        }, {
+                            "menuid": "6",
+                            "menuname": "积分列表",
+                            "icon": "icon-nav",
+                            "url": "/details/UserPoints.aspx"
                         }
                     ]
                 }

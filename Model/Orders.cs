@@ -16,6 +16,7 @@ namespace Model
         public string OrderId { get; set; }
         public string PulsaCode { get; set; }
         public string CnPulsatype { get; set; }
+        public string RechargeNum { get; set; }
         public string Masaaktif { get; set; }
         public string CnQuatity { get; set; }
         public string CnOp { get; set; }

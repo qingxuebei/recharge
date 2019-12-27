@@ -17,7 +17,7 @@
         queryParams: {
             type: "get",
             wherestr: $("#txt_OrderId_Sel").val() + ","
-                + $("#txt_OpenId_Sel").val() + ","
+                + $("#txt_RechargeNum_Sel").val() + ","
                 + $("#txt_operator_Sel").combobox('getValue') + ","
                 + $("#txt_types_Sel").combobox('getValue') + ","
                 + $("#txt_WechatpayState_Sel").combobox('getValue') + ","
@@ -30,17 +30,17 @@
                             return '<img width="50px" height="50px" border="0" src="' + value + '"/>';
                         },
                     },
-                    { field: "WechatOpenid", title: 'OpenId', width: 100, align: 'right' },
-                    { field: "OrderId", title: '订单编号', width: 100, align: 'right' },
-                    { field: "PulsaCode", title: '产品编号', width: 100, align: 'right' },
-                    { field: 'OperatorId', title: '供应商名称', width: 100, align: 'right' },
-                    { field: 'CnPulsatype', title: '充值类型', width: 100, align: 'right' },
-                    { field: 'CnQuatity', title: '显示标签', width: 50, align: 'right' },
-                    { field: 'CnOp', title: '显示介绍', width: 200, align: 'right' },
-                    { field: 'UsePoints', title: '使用积分', width: 200, align: 'right' },
-                    { field: 'CnPrice', title: '付费价格', width: 100, align: 'right' },
+                    { field: "OrderId", title: '订单编号', width: 150, align: 'center' },
+                    { field: 'CnPulsatype', title: '充值类型', width: 60, align: 'center' },
+                    { field: "RechargeNum", title: '充值号码', width: 150, align: 'center' },
+                    { field: "PulsaCode", title: '产品编号', width: 100, align: 'center' },
+                    { field: 'OperatorId', title: '供应商名称', width: 100, align: 'center' },
+                    { field: 'CnQuatity', title: '显示标签', width: 60, align: 'center' },
+                    //{ field: 'CnOp', title: '显示介绍', width: 200, align: 'right' },
+                    { field: 'UsePoints', title: '使用积分', width: 60, align: 'center' },
+                    { field: 'CnPrice', title: '付费价格', width: 60, align: 'center' },
                     {
-                        field: 'WechatpayState', title: '微信支付状态', width: 100, align: 'right',
+                        field: 'WechatpayState', title: '微信支付状态', width: 100, align: 'center',
                         formatter: function (value, row, index) {
                             if (value == 0) {
                                 return "已禁用";
@@ -48,12 +48,16 @@
                         }
                     },
                     {
-                        field: 'PulsaState', title: '三方支付状态', width: 100, align: 'right',
+                        field: 'PulsaState', title: '三方支付状态', width: 100, align: 'center',
                         formatter: function (value, row, index) {
                             if (value == 0) {
                                 return "已禁用";
                             } else if (value == 1) { return "已启用"; }
                         }
+                    },
+                    {
+                        field: 'CreateTime', title: 'CreateTime', width: 100, align: 'center',
+                        formatter: function (value, row, index) { if (value) { return ShortDatetime(value) } }
                     },
                     {
                         field: 'operatorb', title: 'Edit', align: 'center', width: 70,
@@ -72,7 +76,7 @@
         $('#dg').datagrid('load', {
             type: "get",
             wherestr: $("#txt_OrderId_Sel").val() + ","
-               + $("#txt_OpenId_Sel").val() + ","
+               + $("#txt_RechargeNum_Sel").val() + ","
                + $("#txt_operator_Sel").combobox('getValue') + ","
                + $("#txt_types_Sel").combobox('getValue') + ","
                + $("#txt_WechatpayState_Sel").combobox('getValue') + ","

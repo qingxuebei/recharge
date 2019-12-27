@@ -7,40 +7,28 @@ using System.Web;
 namespace Web.ashx
 {
     /// <summary>
-    /// Orders 的摘要说明
+    /// UserPoints 的摘要说明
     /// </summary>
-    public class Orders : Base
+    public class UserPoints : Base
     {
         public override String get(HttpContext context)
         {
             int pageRows = 20, page = 1; String order = "";
 
-            BLL.OrdersBLL orderBLL = new BLL.OrdersBLL();
+            BLL.UserPointsBLL userPointsBLL = new BLL.UserPointsBLL();
             String strWhere = " 1=1";
             string[] st = context.Request.Params["wherestr"].ToString().Split(',');
             if (!String.IsNullOrWhiteSpace(st[0]))
             {
-                strWhere += " and OrderId='" + st[0].ToString() + "'";
-            }
-            if (!String.IsNullOrWhiteSpace(st[2]))
-            {
-                strWhere += " and OperatorId=" + Convert.ToInt32(st[2]);
-            }
-            if (!String.IsNullOrWhiteSpace(st[3]))
-            {
-                strWhere += " and CnPulsatype='" + st[3].ToString() + "'";
-            }
-            if (!String.IsNullOrWhiteSpace(st[4]))
-            {
-                strWhere += " and WechatpayState=" + Convert.ToInt32(st[4]);
-            }
-            if (!String.IsNullOrWhiteSpace(st[5]))
-            {
-                strWhere += " and PulsaState=" + Convert.ToInt32(st[5]);
+                strWhere += " and Openid='" + st[0].ToString() + "'";
             }
             if (!String.IsNullOrWhiteSpace(st[1]))
             {
-                strWhere += " and RechargeNum like '%" + st[1].ToString() + "'%";
+                strWhere += " and RecommendUserOpenid='" + st[1].ToString() + "'";
+            }
+            if (!String.IsNullOrWhiteSpace(st[2]))
+            {
+                strWhere += " and MyRecommendCode=" + st[2].ToString();
             }
             if (null != context.Request["rows"])
             {
@@ -56,8 +44,8 @@ namespace Web.ashx
             }
 
             //调用分页的GetList方法  
-            DataTable dt = orderBLL.GetListByPage(strWhere.ToString(), order, (page - 1) * pageRows + 1, page * pageRows);
-            int count = orderBLL.GetRecordCount(strWhere.ToString());//获取条数  
+            DataTable dt = userPointsBLL.GetListByPage(strWhere.ToString(), order, (page - 1) * pageRows + 1, page * pageRows);
+            int count = userPointsBLL.GetRecordCount(strWhere.ToString());//获取条数  
             return MyData.Utils.EasyuiDataGridJson(dt, count);
         }
     }

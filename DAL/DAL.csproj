@@ -52,6 +52,7 @@
     <Compile Include="PulsaProductDal.cs" />
     <Compile Include="LogsDal.cs" />
     <Compile Include="SysUserDal.cs" />
+    <Compile Include="UserPointsDal.cs" />
     <Compile Include="WeChatUserDal.cs" />
   </ItemGroup>
   <ItemGroup>

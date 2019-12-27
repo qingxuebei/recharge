@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <script src="../scripts/alljs.js"></script>
-    <script src="../js/PulsaProduct.js"></script>
+    <script src="../js/Orders.js?i=1.1"></script>
 
 </head>
 <body>
@@ -19,10 +19,10 @@
                         <td>
                             <div id="tb_lzd" style="padding: 5px; height: auto">
                                 订单号：
-                                <input class="easyui-textbox" id="txt_OrderId_Sel" data-options="prompt: 'Product Name'" style="width: 200px; height: 25px" />
+                                <input class="easyui-textbox" id="txt_OrderId_Sel" style="width: 200px; height: 25px" />
                                 <span></span>
-                                OpenId:
-                                <input class="easyui-textbox" id="txt_OpenId_Sel" data-options="prompt: 'Product Name'" style="width: 200px; height: 25px" />
+                                充值号码:
+                                <input class="easyui-textbox" id="txt_RechargeNum_Sel"  style="width: 200px; height: 25px" />
                                 运营商：
                                 <select id="txt_operator_Sel" class="easyui-combobox" data-options="editable:false" style="width: 100px;">
                                     <option value="">全部</option>
@@ -41,14 +41,14 @@
                                     <option value="pulsa">话费</option>
                                 </select>
                                 <span></span>
-                                状态：
+                                微信支付状态：
                                 <select id="txt_WechatpayState_Sel" class="easyui-combobox" data-options="editable:false" style="width: 100px;">
                                     <option value="">全部</option>
                                     <option value="0">已禁用</option>
                                     <option value="1">已启用</option>
                                 </select>
                                 <span></span>
-                                状态：
+                                三方支付状态：
                                 <select id="txt_PulsaState_Sel" class="easyui-combobox" data-options="editable:false" style="width: 100px;">
                                     <option value="">全部</option>
                                     <option value="0">已禁用</option>

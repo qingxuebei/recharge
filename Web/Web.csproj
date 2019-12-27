@@ -115,6 +115,7 @@
     <Content Include="details\Orders.aspx" />
     <Content Include="details\PulsaProduct.aspx" />
     <Content Include="details\test.aspx" />
+    <Content Include="details\UserPoints.aspx" />
     <Content Include="details\WeChatUser.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\buttonbg.png" />
@@ -127,6 +128,7 @@
     <Content Include="details\backHome.aspx" />
     <Content Include="js\Market.js" />
     <Content Include="js\Orders.js" />
+    <Content Include="js\UserPoints.js" />
     <Content Include="js\WeChatUser.js" />
     <Content Include="js\PulsaProduct.js" />
     <Content Include="login.aspx" />
@@ -594,6 +596,7 @@
     <Content Include="ashx\PulsaProduct.ashx" />
     <Content Include="ashx\WeChatUser.ashx" />
     <Content Include="ashx\Orders.ashx" />
+    <Content Include="ashx\UserPoints.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -708,6 +711,9 @@
     <Compile Include="ashx\PulsaProduct.ashx.cs">
       <DependentUpon>PulsaProduct.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\UserPoints.ashx.cs">
+      <DependentUpon>UserPoints.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\WeChatUser.ashx.cs">
       <DependentUpon>WeChatUser.ashx</DependentUpon>
     </Compile>
@@ -745,6 +751,13 @@
     </Compile>
     <Compile Include="details\test.aspx.designer.cs">
       <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="details\UserPoints.aspx.cs">
+      <DependentUpon>UserPoints.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="details\UserPoints.aspx.designer.cs">
+      <DependentUpon>UserPoints.aspx</DependentUpon>
     </Compile>
     <Compile Include="details\WeChatUser.aspx.cs">
       <DependentUpon>WeChatUser.aspx</DependentUpon>
